@@ -87,17 +87,17 @@ $(function() {
 
     /* TODO: Write a new test suite named "Initial Entries" */
     describe("Initial Entries", () => {
-        it("loadFeed function is called and completes its work", () => {
 
-            //let loadEntry;
-            window.onload = () => {
-                //loadEntry = $(".entry-link .entry");
-                expect(loadFeed()).first().hasClass(".entry")
-                ..toBe(true);
-            };
-            //expect($(".entry-link .entry").first().hasClass(".entry")).toBe(true);
-
+        let loadFeeder;
+        beforeEach( (done) => {
+            loadFeeder.push(loadFeed());
+            done();
         });
+
+        it("loadFeed function is called and completes its work", () => {
+                expect(loadFeed()).first().hasClass(".entry").toBe(true);
+            };
+
     });
         /* TODO: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
