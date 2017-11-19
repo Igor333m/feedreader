@@ -88,14 +88,28 @@ $(function() {
     /* TODO: Write a new test suite named "Initial Entries" */
     describe("Initial Entries", () => {
 
-        let loadFeeder = [];
-        beforeEach( (done) => {
-            loadFeeder.push(loadFeed());
-            done();
+        // let loadF;
+        // beforeEach( (done) => {
+        //     loadF = loadFeed();
+        //     done();
+        // });
+        let firstChild;
+
+        beforeEach(function(done) {
+            setTimeout(function() {
+                            console.log("Hell");
+
+                done();
+            }, 3);
+
+               
         });
 
         it("loadFeed function is called and completes its work", () => {
-                expect(loadFeed[0].first().hasClass(".entry")).toBe(true);
+            firstChild = $(".feed > a:nth-child(1) > article");
+            console.log("Hell");
+            expect(firstChild.hasClass("entry")).toBe(true);
+            done();
             });
 
     });
@@ -112,4 +126,6 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+
+
 }());
