@@ -65,7 +65,6 @@ $(function() {
          * hiding/showing of the menu element.
          */
          let bodyClass = $("body");
-         let menu = $('.menu-icon-link');
          it("menu element is hidden by the default", () => {
             expect(bodyClass.hasClass("menu-hidden")).toBe(true);
          });
@@ -96,11 +95,11 @@ $(function() {
         let firstChild;
 
         beforeEach(function(done) {
-            setTimeout(function() {
-                            console.log("Hell");
+            window.setTimeout(function() {
+                            alert("Hell");
 
                 done();
-            }, 3);
+            }, 3000);
 
                
         });
@@ -109,7 +108,7 @@ $(function() {
             firstChild = $(".feed > a:nth-child(1) > article");
             console.log("Hell");
             expect(firstChild.hasClass("entry")).toBe(true);
-            done();
+            
             });
 
     });
