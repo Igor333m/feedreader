@@ -38,10 +38,6 @@ $(function() {
          * and that the URL is not empty.
          */
         it("URL-s are defined and not empty", () => {
-            // allFeeds.forEach( (obj) => {
-            //     expect(obj.url).toBeDefined();
-            //     expect(obj.url.length).not.toBe(0);
-            // });
             expect(feed.url).toBeDefined();
             expect(feed.url.length).not.toBe(0);
         });
@@ -96,28 +92,26 @@ $(function() {
 
         beforeEach(function(done) {
             window.setTimeout(function() {
-                            alert("Hell");
-
                 done();
             }, 3000);
 
                
         });
-
-        it("loadFeed function is called and completes its work", () => {
-            firstChild = $(".feed > a:nth-child(1) > article");
-            console.log("Hell");
-            expect(firstChild.hasClass("entry")).toBe(true);
-            
-            });
-
-    });
+        
         /* TODO: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+        it("loadFeed function is called and completes its work", () => {
+            firstChild = $(".feed > a:nth-child(1) > article");
+            expect(firstChild.hasClass("entry")).toBe(true);
+            
+            });
+
+    });
+        
 
     /* TODO: Write a new test suite named "New Feed Selection" */
 
