@@ -78,19 +78,10 @@ $(function() {
     /* Write a new test suite named "Initial Entries" */
     describe("Initial Entries", () => {
 
-        // let loadF;
-        // beforeEach( (done) => {
-        //     loadF = loadFeed();
-        //     done();
-        // });
         let firstChild;
 
         beforeEach(function(done) {
-            window.setTimeout(function() {
-                done();
-            }, 3000);
-
-               
+            loadFeed(0, done);
         });
 
         /* Write a test that ensures when the loadFeed
@@ -102,11 +93,8 @@ $(function() {
         it("loadFeed function is called and completes its work", () => {
             firstChild = $(".feed > a:nth-child(1) > article");
             expect(firstChild.hasClass("entry")).toBe(true);
-            
             });
-
     });
-        
 
     /* Write a new test suite named "New Feed Selection" */
     describe("New Feed Selection",  () => {
