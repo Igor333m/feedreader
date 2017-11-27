@@ -66,6 +66,7 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
           it("menu element is visible when the menu icon is clicked", () => {
+            // verify after the menu icon is clicked once, the menu displays
             $('.menu-icon-link').click();
             expect(bodyClass.hasClass("menu-hidden")).not.toBe(true);
           });
@@ -103,7 +104,7 @@ $(function() {
 
         beforeEach(function(done) {
             loadFeed(0, () => {
-                feed = $(".feed");
+                feed = $(".feed").html();
                 done();
             });
         });
@@ -111,12 +112,12 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
-        it("new feed is loaded by the loadFeed function", () => {
+        it("new feed is loaded by the loadFeed function", (done) => {
             loadFeed(1, () => {
-                newFeed = $(".feed");
+                newFeed = $(".feed").html();
+                expect(feed).not.toBe(newFeed);
                 done();
             });
-            expect(feed).not.toBe(newFeed);
         });
     });
 }());
